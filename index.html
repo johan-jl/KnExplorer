@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Knowledge Explorer - Daily dose of curiosity</title>
+    <meta name="description" content="Discover random Wikipedia articles and explore knowledge across different categories. Your daily dose of curiosity awaits!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧠%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Random Knowledge Explorer">
+    <meta property="og:description" content="Discover random Wikipedia articles and explore knowledge across different categories">
+    <meta property="og:url" content="">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Random Knowledge Explorer">
+    <meta name="twitter:description" content="Your daily dose of curiosity from Wikipedia">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="brand-container">
+                        <div class="logo-wrapper">
+                            <div class="logo-icon-container">
+                                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <div class="logo-glow"></div>
+                            </div>
+                            <div class="brand-text">
+                                <h1 class="logo-title">
+                                    <span class="logo-main">Knowledge</span>
+                                    <span class="logo-accent">Explorer</span>
+                                </h1>
+                                <div class="tagline-container">
+                                    <p class="tagline">
+                                        <span class="tagline-icon">✨</span>
+                                        Discover • Learn • Wonder
+                                        <span class="tagline-pulse"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-controls">
+                    <!-- Dark mode toggle -->
+                    <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+                        <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Favorites counter -->
+                    <button class="favorites-toggle" aria-label="View favorites" title="View saved articles">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <span class="favorites-count" aria-label="Number of saved articles">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main" role="main">
+        <div class="container">
+            <!-- Search Section -->
+            <section class="search-section" aria-label="Search and categories">
+                <div class="search-container">
+                    <form class="search-form" role="search">
+                        <label for="search-input" class="visually-hidden">Search Wikipedia articles</label>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="search-input" 
+                            placeholder="Search for any topic..."
+                            aria-describedby="search-help"
+                        >
+                        <button type="submit" class="search-button" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </button>
+                    </form>
+                    <p id="search-help" class="search-help">Press Enter to search or browse by category below</p>
+                </div>
+                
+                <!-- Categories -->
+                <div class="categories" role="group" aria-label="Browse by category">
+                    <button class="category-btn" data-category="history">
+                        <span class="category-icon">🏛️</span>
+                        History
+                    </button>
+                    <button class="category-btn" data-category="science">
+                        <span class="category-icon">🔬</span>
+                        Science
+                    </button>
+                    <button class="category-btn" data-category="technology">
+                        <span class="category-icon">💻</span>
+                        Technology
+                    </button>
+                    <button class="category-btn" data-category="art">
+                        <span class="category-icon">🎨</span>
+                        Art
+                    </button>
+                    <button class="category-btn" data-category="geography">
+                        <span class="category-icon">🌍</span>
+                        Geography
+                    </button>
+                </div>
+            </section>
+
+            <!-- Article Display -->
+            <section class="article-section" aria-label="Wikipedia article">
+                <!-- Loading State -->
+                <div class="article-skeleton" aria-hidden="true">
+                    <div class="skeleton-header">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-meta"></div>
+                    </div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-image"></div>
+                        <div class="skeleton-text">
+                            <div class="skeleton-line"></div>
+                            <div class="skeleton-line"></div>
+                            <div class="skeleton-line short"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Card -->
+                <article class="article-card" aria-live="polite">
+                    <header class="article-header">
+                        <h2 class="article-title"></h2>
+                        <div class="article-meta">
+                            <span class="reading-time" aria-label="Estimated reading time"></span>
+                            <span class="article-length" aria-label="Article length"></span>
+                        </div>
+                    </header>
+                    
+                    <div class="article-content">
+                        <div class="article-image-container">
+                            <img class="article-image" alt="" loading="lazy">
+                        </div>
+                        <div class="article-text">
+                            <p class="article-summary"></p>
+                            <div class="article-actions">
+                                <a class="read-more-link" href="#" target="_blank" rel="noopener noreferrer">
+                                    Read full article
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article Controls -->
+                    <div class="article-controls">
+                        <button class="control-btn next-btn" aria-label="Get next random article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                            Next Article
+                        </button>
+                        
+                        <button class="control-btn favorite-btn" aria-label="Add to favorites">
+                            <svg class="heart-outline" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <svg class="heart-filled" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span class="favorite-text">Save</span>
+                        </button>
+                        
+                        <button class="control-btn share-btn" aria-label="Share this article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/>
+                            </svg>
+                            Share
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Error State -->
+                <div class="error-state" aria-live="assertive">
+                    <div class="error-illustration">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6M12 18h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="error-title">Oops! Something went wrong</h3>
+                    <p class="error-message">We couldn't fetch the article. Please check your connection and try again.</p>
+                    <button class="retry-btn">Try Again</button>
+                </div>
+            </section>
+
+            <!-- Status Messages -->
+            <div class="status-message" role="status" aria-live="polite"></div>
+        </div>
+    </main>
+
+    <!-- Favorites Modal -->
+    <div class="modal-overlay favorites-modal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-labelledby="favorites-title" aria-modal="true">
+            <header class="modal-header">
+                <h2 id="favorites-title">Saved Articles</h2>
+                <button class="modal-close" aria-label="Close favorites">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </header>
+            <div class="modal-content">
+                <div class="favorites-list">
+                    <div class="empty-favorites">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <p>No saved articles yet</p>
+                        <small>Articles you save will appear here</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p class="attribution">
+                Content from <a href="https://wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a> 
+                is licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>
+            </p>
+            <p class="footer-note">
+                Engineered for knowledge discovery • 
+                <button class="auto-fetch-toggle" aria-pressed="false">Auto-fetch: OFF</button>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
+
+<!--
+README / INSTRUCTIONS:
+======================
+
+## Random Knowledge Explorer
+
+A beautiful, accessible single-page application that displays random Wikipedia articles with category browsing, search, favorites, and sharing capabilities.
+
+### How to Run Locally:
+1. Download all files (index.html, styles.css, app.js)
+2. Open index.html in any modern web browser
+3. No build process or server required - it's a static website!
+
+### How to Deploy:
+- Upload files to any static hosting service (Netlify, Vercel, GitHub Pages, etc.)
+- Ensure all three files are in the same directory
+- The site will work immediately with no configuration
+
+### Features:
+- 🎲 Random Wikipedia articles on load and "Next" button
+- 🔍 Search functionality with Wikipedia's search API
+- 📚 Category browsing (History, Science, Technology, Art, Geography)
+- ❤️ Save favorites to localStorage
+- 🌙 Dark/light theme toggle (persisted)
+- 📱 Fully responsive design
+- ♿ Accessibility compliant (ARIA, keyboard navigation, screen readers)
+- 🔄 Offline caching of last article
+- 📤 Native sharing (Web Share API) with clipboard fallback
+- ⚡ Performance optimized with lazy loading and skeleton states
+
+### localStorage Keys Used:
+- 'rke_favorites': Array of saved article objects
+- 'rke_theme': Current theme preference ('light' or 'dark')
+- 'rke_lastArticle': Last fetched article for offline viewing
+- 'rke_autoFetch': Auto-fetch preference (boolean)
+- 'rke_visitCount': Simple visit counter
+
+### API Usage:
+- Uses Wikipedia REST API (https://en.wikipedia.org/api/rest_v1/)
+- Respects rate limits with built-in delays
+- Handles CORS with proper origin parameters
+- Graceful error handling and retry mechanisms
+
+### Browser Support:
+- Modern browsers (Chrome 60+, Firefox 60+, Safari 12+, Edge 79+)
+- Uses ES6+ features (async/await, fetch, CSS custom properties)
+- Progressive enhancement for older browsers
+
+### Attribution:
+Content from Wikipedia is licensed under CC BY-SA 3.0
+Icons and design are original work
+-->
